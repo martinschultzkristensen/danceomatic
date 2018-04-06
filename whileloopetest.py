@@ -23,5 +23,16 @@ while(1): # Create an infinite loop
 
 player.quit()
 GPIO.cleanup
-                
-                
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            quit()
+
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                x_change = -5
+            if event.key == pygame.K_RIGHT:
+                pygame.quit() #Right key close program
+                quit()
