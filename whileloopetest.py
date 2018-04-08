@@ -11,7 +11,7 @@ GPIO.setup(button1,GPIO.IN,pull_up_down=GPIO.PUD_UP) # Set button1 as input and 
 
 vida = "/home/pi/Desktop/elephant.mp4"
 
-player = omxplayer.player.OMXPlayer(default, ['-o', 'local']) #arg local push sound to jack
+player = omxplayer.player.OMXPlayer(vida, ['-o', 'local','--loop']) #arg local push sound to jack
 #set_video_pos(x1, y1, x2, y2)
 player.set_video_pos(200,200,627,440) #vida er 854 × 480px. Divide with two + x1 and y1
 while True:
@@ -22,5 +22,5 @@ while True:
  
     
 
-player.quit()
+#player.quit()
 GPIO.cleanup
