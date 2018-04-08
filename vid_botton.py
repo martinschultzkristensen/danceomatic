@@ -27,9 +27,12 @@ GPIO.setup(11, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
 
 
-player = OMXPlayer(default,args=['-o', 'local'],)
+player = OMXPlayer(default,args=['-o', 'local', '--loop'],)
 player.set_video_pos(200,200,627,440) #video files are ?854 × 480px.? Divide with two + x1 and y1
 while True:
+    #player = OMXPlayer(default, args=['-o', 'local'], )
+    #player.set_video_pos(200, 200, 627, 440)
+
     if GPIO.input(12) ==0:
         player.load(vida)
         player.set_video_pos(200,200,627,440)
@@ -37,7 +40,7 @@ while True:
         player.play()
         #sleep(5)
 
-    if GPIO.input(11) ==0:
+    elif GPIO.input(11) ==0:
         player.load(vidb)
         player.set_video_pos(200,200,627,440)
         print("button2 pushed")
