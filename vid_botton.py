@@ -32,12 +32,14 @@ player.set_video_pos(200,200,627,440) #video files are ?854 × 480px.? Divid
 while True:
     if GPIO.input(12) ==0:
         player.load(vida)
+        player.set_video_pos(200,200,627,440)
         print("button1 pushed")
         player.play()
         #sleep(5)
 
     if GPIO.input(11) ==0:
         player.load(vidb)
+        player.set_video_pos(200,200,627,440)
         print("button2 pushed")
         player.play()
         #sleep(5)
