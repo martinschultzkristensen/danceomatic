@@ -6,16 +6,18 @@ from time import sleep
 
 
 #THE LIST SPECIFIES THE AUDIO OUTPUT TO JACK!!!
-player = omxplayer.player.OMXPlayer("/home/pi/Desktop/elephant.mp4", ['-o','local', '--loop'])
 
-sleep(10) #How long time it should play before quit.
 
 
 player.quit()
 
 VIDEO_PATH = Path("/home/pi/Desktop/elephant.mp4")
 
-player = omxplayer.player.OMXPlayer(VIDEO_PATH, ['-o', 'local'])
+#set_video_crop(x1, y1, x2, y2)
+#cropVideo = (100,100,200,200)
+
+player = omxplayer.player.OMXPlayer(VIDEO_PATH, ['-o', 'local', '--win 100 100 200 200'])
+
 
 sleep(5)
 player.pause()
