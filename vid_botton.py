@@ -19,33 +19,49 @@ import RPi.GPIO as GPIO
 
 GPIO.setmode (GPIO.BOARD)
 GPIO.setwarnings (False)
-
+up = 12
+down = 11
+enter = 7
 
 #All Gpio's as input and pull up
-GPIO.setup(12,GPIO.IN,pull_up_down=GPIO.PUD_UP) # Set button1 as input and Activate pull up resistor
-GPIO.setup(11, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+GPIO.setup(up,GPIO.IN,pull_up_down=GPIO.PUD_UP) # Set button "up" as input and Activate pull up resistor
+GPIO.setup(down, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+GPIO.setup(enter, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
 
 
 player = OMXPlayer(default,args=['-o', 'local', '--loop'],)
 player.set_video_pos(200,200,627,440) #video files are ?854 × 480px.? Divide with two + x1 and y1
+
+
 while True:
+    #TODO: create a way for videos to be in a mill. Look over c# prg.
+    vida = 0
+    vidb = 1
+    vidc = 2
+    default = 3
+
+
+
     #player = OMXPlayer(default, args=['-o', 'local'], )
     #player.set_video_pos(200, 200, 627, 440)
 
-    if GPIO.input(12) ==0:
+    if GPIO.input(up) ==0:
         player.load(vida)
         player.set_video_pos(200,200,627,440)
         print("button1 pushed")
         player.play()
         #sleep(5)
 
-    elif GPIO.input(11) ==0:
+    elif GPIO.input(down) ==0:
         player.load(vidb)
         player.set_video_pos(200,200,627,440)
         print("button2 pushed")
         player.play()
         #sleep(5)
+
+    elif GPIO.input(enter) ==0:
+        player.quit()
 
 
 #      if (GPIO.input(4) == 0):
