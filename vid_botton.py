@@ -30,16 +30,13 @@ GPIO.setup(enter, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
 
 
-player = OMXPlayer(default,args=['-o', 'local', '--loop'],)
-player.set_video_pos(200,200,627,440) #video files are ?854 × 480px.? Divide with two + x1 and y1
+ #video files are ?854 × 480px.? Divide with two + x1 and y1
 
 
 while True:
+    player = OMXPlayer(default, args=['-o', 'local'], )
+    player.set_video_pos(200, 200, 627, 440)
     #TODO: create a way for videos to be in a mill. Look over c# prg.
-    vida = 0
-    vidb = 1
-    vidc = 2
-    default = 3
 
 
 
