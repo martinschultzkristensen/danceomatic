@@ -33,9 +33,11 @@ GPIO.setup(enter, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 player = OMXPlayer(default,args=['-o', 'local'],)
 player.set_video_pos(200,200,627,440) #video files are ?854 × 480px.? Divide with two + x1 and y1
 
-
-while True:
+loop = True
+while loop:
     #TODO: create a way for videos to be in a mill. Look over c# prg.
+
+
 
 
 
@@ -58,13 +60,8 @@ while True:
 
     elif GPIO.input(enter) ==0:
         player.quit()
+        loop = False
 
-
-#      if (GPIO.input(4) == 0):
- #           player.load(vidc)
-  #          print("gpio 4")
-   #         player.play()
-            #sleep(5)
 
 
 # Kill the `omxplayer` process gracefully.
