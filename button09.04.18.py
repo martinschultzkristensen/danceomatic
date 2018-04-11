@@ -13,8 +13,8 @@ GPIO.setup(up,GPIO.IN,pull_up_down=GPIO.PUD_UP) # Set button "up" as input and A
 GPIO.setup(down, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 GPIO.setup(enter, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
-#make a list
 
+#All players are playing at the same time!?! HOW TO FIX?
 playerA = OMXPlayer('/home/pi/Desktop/video/ai.mp4', args=['-o', 'local', '--loop'])
 playerB = OMXPlayer('/home/pi/Desktop/video/Culture4Fun.mp4', args=['-o', 'local', '--loop'])
 playerC = OMXPlayer('/home/pi/Desktop/video/MT.mp4', args=['-o', 'local', '--loop'])
