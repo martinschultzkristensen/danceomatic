@@ -29,12 +29,12 @@ GPIO.setup(down, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 GPIO.setup(enter, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
 
-
-player = OMXPlayer(default,args=['-o', 'local'],)
+#Funny, the player quits after one run (while becomes False), but finishes without error. No loop = dbus error
+player = OMXPlayer(default,args=['-o', 'local', '--loop'])
 player.set_video_pos(200,200,627,440) #video files are ?854 × 480px.? Divide with two + x1 and y1
 
-loop = True
-while loop:
+
+while player.is_playing():
     #TODO: create a way for videos to be in a mill. Look over c# prg.
 
 
